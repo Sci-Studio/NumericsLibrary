@@ -1,3 +1,6 @@
+#ifndef OBJPARSER_H
+#define OBJPARSER_H
+
 #include <string>
 #include <vector>
 
@@ -10,7 +13,7 @@ class ObjParser
     public:
         ObjParser();
         ObjParser(const std::string fileName);
-        
+
         void parseObjFile();
         void printObjFile();
 
@@ -21,3 +24,5 @@ class ObjParser
         std::string m_FileName;
         std::vector<Vertex> m_Vertices;
 };
+
+#endif // OBJPARSER_H

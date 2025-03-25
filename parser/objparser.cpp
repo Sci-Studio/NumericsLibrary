@@ -38,3 +38,7 @@ void ObjParser::printObjFile() {
     }
 }
     
+std::vector<Vertex> ObjParser::getVertices()
+{
+    return m_Vertices;
+}

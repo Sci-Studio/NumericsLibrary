@@ -1,5 +1,7 @@
 
 #include "parser/objparser.h"
+#include "delaunay/delaunay.h"
+
 #include <iostream>  // Include the I/O stream library
 
 int main() {
@@ -8,5 +10,8 @@ int main() {
     parser.parseObjFile();
     parser.printObjFile();
 
+    DelaunayMeshGeneration delaunay(parser.getVertices());
+    delaunay.printPoints();
+    
     return 0;  // Return 0 to indicate successful execution
 }
