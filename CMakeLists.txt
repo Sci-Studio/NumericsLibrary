@@ -20,4 +20,5 @@ target_include_directories(${PROJECT_NAME}
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/parser
     ${CMAKE_CURRENT_SOURCE_DIR}/delaunay
+    ${CMAKE_CURRENT_SOURCE_DIR}/eigen-3.4.0
 )

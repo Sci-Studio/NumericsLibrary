@@ -1,5 +1,6 @@
 #include "delaunay.h"
 
+#include <Eigen/Dense>
 #include <iostream>
 #include <algorithm>
 
@@ -19,15 +20,32 @@ void DelaunayMeshGeneration::printPoints()
 
 bool DelaunayMeshGeneration::isInsideCircumcircle(const Point& p, const DelaunayTriangle& t)
 {
-    float ax = t.p1.x - p.x, ay = t.p1.y - p.y;
-    float bx = t.p2.x - p.x, by = t.p2.y - p.y;
-    float cx = t.p3.x - p.x, cy = t.p3.y - p.y;
+    Eigen::MatrixXd A(4, 4); 
 
-    float det = (ax * (by * (cx*cx + cy*cy) - cy * (bx*bx + by*by)) -
-                 ay * (bx * (cx*cx + cy*cy) - cx * (bx*bx + by*by)) +
-                 (ax*ax + ay*ay) * (bx * cy - cx * by));
+    float ax = t.p1.x, ay = t.p1.y, 
+          bx = t.p2.x, by = t.p2.y,
+          cx = t.p3.x, cy = t.p3.y;
 
-    return det > 0; // Point is inside if determinant > 0
+    float dx = p.x, dy = p.y;
+    
+    float ax_2_plus_ay_2 = (ax * ax) + (ay * ay),
+          bx_2_plus_by_2 = (bx * bx) + (by * by),
+          cx_2_plus_cy_2 = (cx * cx) + (cy * cy),
+          dx_2_plus_dy_2 = (dx * dx) + (dy * dy);
+
+    A << ax, ay, ax_2_plus_ay_2, 1,
+         bx, by, bx_2_plus_by_2, 1,
+         cx, cy, cx_2_plus_cy_2, 1,
+         dx, dy, dx_2_plus_dy_2, 1;
+    // float ax = t.p1.x - p.x, ay = t.p1.y - p.y;
+    // float bx = t.p2.x - p.x, by = t.p2.y - p.y;
+    // float cx = t.p3.x - p.x, cy = t.p3.y - p.y;
+
+    // float det = (ax * (by * (cx*cx + cy*cy) - cy * (bx*bx + by*by)) -
+    //              ay * (bx * (cx*cx + cy*cy) - cx * (bx*bx + by*by)) +
+    //              (ax*ax + ay*ay) * (bx * cy - cx * by));
+
+    return A.determinant() > 0; // Point is inside if determinant > 0
 }
 
 

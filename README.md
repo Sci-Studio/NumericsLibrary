@@ -16,4 +16,8 @@ Following VS code extension required
 * CMake Tools
 * CMake For VisualStudio Code
 
-Following the video a launch.json file should be created, make sure while building the executable to se the cmake flag for debug 
+Following the video a launch.json file should be created, make sure while building the executable to se the cmake flag for debug
+
+# Thrid party libraries
+* Eigen: Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms,
+dowload the latest version(3.4.0) https://eigen.tuxfamily.org/index.php?title=Main_Page, extract the library to the project directory where `CMakeLists.txt` file exist. If another version than 3.4.0 is downladed, make sure to update the `CMakeLists.txt` file and `.gitignore`. 
