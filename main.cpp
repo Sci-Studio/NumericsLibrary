@@ -6,12 +6,15 @@
 
 int main() {
     
-    ObjParser parser("../../Data/rectangle-prism-final.obj");
+    ObjParser parser("/home/hisham/dev_latest/GeometryMeshing/Data/rectangle-prism-final.obj");
     parser.parseObjFile();
-    parser.printObjFile();
+    // parser.printObjFile();
 
     DelaunayMeshGeneration delaunay(parser.getVertices());
-    delaunay.printPoints();
+    // delaunay.printPoints();
+
+    delaunay.delaunayTriangulation();
+    delaunay.printTriangles();
     
     return 0;  // Return 0 to indicate successful execution
 }
