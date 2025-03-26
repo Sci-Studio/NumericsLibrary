@@ -21,3 +21,5 @@ Following the video a launch.json file should be created, make sure while buildi
 # Thrid party libraries
 * Eigen: Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms,
 dowload the latest version(3.4.0) https://eigen.tuxfamily.org/index.php?title=Main_Page, extract the library to the project directory where `CMakeLists.txt` file exist. If another version than 3.4.0 is downladed, make sure to update the `CMakeLists.txt` file and `.gitignore`. 
+
+* Catch: Catch is a testing library for c++, using catch version 3, to make it  work FetchContent is used. For further details how to setup catch and make it work, check https://www.youtube.com/watch?v=eBByZNtnpFM, and the library documnetation https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md#automatic-test-registration.

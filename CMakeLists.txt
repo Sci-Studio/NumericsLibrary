@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
-project(NumericasLibrary)
+project(NumericsLibrary)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+enable_testing()
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 # Add source files
 set(SOURCES
@@ -22,3 +26,5 @@ target_include_directories(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/delaunay
     ${CMAKE_CURRENT_SOURCE_DIR}/eigen-3.4.0
 )
+
+add_subdirectory(tests)
