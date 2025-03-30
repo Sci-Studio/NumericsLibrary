@@ -45,7 +45,8 @@ bool DelaunayMeshGeneration::isInsideCircumcircle(const Point& p, const Delaunay
     //              ay * (bx * (cx*cx + cy*cy) - cx * (bx*bx + by*by)) +
     //              (ax*ax + ay*ay) * (bx * cy - cx * by));
 
-    return A.determinant() > 0; // Point is inside if determinant > 0
+    float det = A.determinant(); 
+    return det > 0; // Point is inside if determinant > 0
 }
 
 
@@ -63,7 +64,7 @@ std::vector<DelaunayTriangle> DelaunayMeshGeneration::delaunayTriangulation()
     }
 
     float dx = maxX - minX, dy = maxY - minY;
-    float deltaMax = std::max(dx, dy) * 2.0f;
+    float deltaMax = std::max(dx, dy);
     Point p1 = { minX - deltaMax, minY - deltaMax };
     Point p2 = { minX - deltaMax, maxY + deltaMax };
     Point p3 = { maxX + deltaMax, minY - deltaMax };

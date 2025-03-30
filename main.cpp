@@ -6,7 +6,7 @@
 
 int main() {
     
-    ObjParser parser("/home/hisham/dev_latest/GeometryMeshing/Data/rectangle-prism-final.obj");
+    ObjParser parser("/home/hisham/dev_latest/GeometryMeshing/Data/rectangle-prism-smaller-dim.obj");
     parser.parseObjFile();
     // parser.printObjFile();
 
